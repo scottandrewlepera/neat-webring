@@ -1,0 +1,25 @@
+### SETTINGS
+### This section contains the settings for your webring.
+
+webringName: The Cool Sites Webring
+homepage: /neat-webring/home/
+description: Describe your webring here, write anything you want, just keep it on one line.
+showRandomIcon: true
+showHomeIcon: true
+---
+
+### SITE LIST
+### Add sites to your webring here, separated by "---"
+### The sites below are placeholders, feel free to remove them.
+
+name: Neat Hobby!
+link: https://neathobby.com
+description: Semi-weekly gag comics for the terminally online.
+---
+name: HERETICAL
+link: https://hereticalcomic.com/heretical/
+description: Superstition and survival in an unmade world.
+---
+name: "HERETICAL: CHROME SANDS"
+link: https://hereticalcomic.com/heretical-chrome-sands/
+description: Part two of the HERETICAL series.

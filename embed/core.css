@@ -1,0 +1,84 @@
+/*
+  *************************************************
+    WARNING: editing the style rules below will
+    affect ALL sites in the web ring!
+  *************************************************
+*/
+
+:root {
+  --neat-webring-font: sans-serif;
+  --neat-webring-font-size: clamp(18px, 5vw, 32px);
+  --neat-webring-text-color: rgb(16, 15, 15);
+  --neat-webring-button-color: rgb(32, 94, 166);
+  --neat-webring-bg-color: rgb(255,255,255);
+
+  .dark-mode {
+    --neat-webring-text-color: rgb(255,255,255);
+    --neat-webring-bg-color: rgb(16, 15, 15);
+    --neat-webring-button-color: rgb(102, 160, 200);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --neat-webring-text-color: rgb(255,255,255);
+    --neat-webring-bg-color: rgb(16, 15, 15);
+    --neat-webring-button-color: rgb(102, 160, 200);
+  }
+}
+
+body, body > * {
+  margin: 0;
+  padding: 0;
+}
+
+.neat-webring {
+  display: flex;
+  justify-content: center;
+  font-family: var(--neat-webring-font);
+  font-size: var(--neat-webring-font-size);
+}
+.neat-webring-inner {
+  font-family: sans-serif;
+  padding: 0.5em;
+  color: var(--neat-webring-text-color);
+  background-color: var(--neat-webring-bg-color);
+  border-radius: 0.5em;
+  min-inline-size: 250px;
+  max-inline-size: 400px;
+}
+.neat-webring-title {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+.neat-webring-links {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1em;
+  & a {
+    text-decoration: none;
+    color: var(--neat-webring-button-color);
+
+    & svg {
+      width: 2em;
+      transition: all 250ms ease-in;
+      fill: currentColor;
+    }
+    & svg:hover {
+     transform: scale(120%) 
+    }
+  }
+}
+.neat-webring-footer a {
+  color: var(--neat-webring-button-color);
+}
+
+a.neat-webring-link-random svg:hover {
+    transform: scale(120%) rotate(360deg);
+}
+
+.neat-webring-footer {
+  font-size: 0.5em;
+  text-align: center;
+}
