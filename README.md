@@ -48,35 +48,35 @@ IMPORTANT: The `link` fields should always start with `http://` or `https://` or
 
 Separate the site entries with three hyphens: `---`
 
-When you're done, save the `sites.txt` file.
+When you're done, save the `settings.txt` file.
 
-> <aside>You shouldn't have to touch anything inside the `embed` and `home` folders. (In fact, it's better if you didn't.)</aside>
+> You shouldn't have to touch anything inside the `embed` and `home` folders. (In fact, it's better if you didn't.)
 
 When you're done, save the `settings.txt` file.
 
 ### 3. Upload the folder
 
-1. Upload the `neat-webring` folder to the root directory website. It should be available online following your domain name. If you're not sure, try opening the following link in a browser (replace "your-website.com" with your actually website domain, of course!)
+1. Upload the whole `neat-webring` folder to the root directory website (the whole folder, not just the files inside). It should be available online following your domain name. If you're not sure, try opening the following link in a browser (replace "your-website.com" with your actually website domain, of course!)
 
-`https://your-website.com/neat-webring/sites.txt`
+`https://your-website.com/neat-webring/home/`
 
-If your list of sites appears in the browser, you did it right :)
+If a list of the sites in your webring appears in the browser, you did it right! 🎉
 
 ## Putting the webring widget on any website
 
-Copy and paste the following script tag into a page on the website. Most folks will put it in the footer or a sidebar, but you can basically put it anywhere. Wherever you end up putting it, the widget should appear.
+To put the webring widgets on any website, copy and paste the following script tag into a page on the website. Most people will put it in the footer or a sidebar, but you can basically put it anywhere. Wherever you end up putting it, the widget should appear.
 
 ```html
 <script src="http://your-website.com/neat-webring/embed/webring.js"></script>
 
 ```
 
-> <aside>If you're using WordPress or Squarespace, you'll need to create a Code Block to put HTML in. Follow the documentation for your website builder.</aside>
+> If you're using WordPress or Squarespace, you'll need to create a Code Block to put HTML in. Follow the documentation for your website builder.
 
 
 The default widget should look like this:
 
-<img src="./home/neat-webring-default.png" style="max-width: 350px" />
+<img src="./home/neat-webring-default.png" width="350" style="max-width: 350px" />
 
 Share the script tag with anyone you want to include in your webring. They can paste the same tag into their own website and keep the ring going.
 
@@ -102,7 +102,7 @@ You can also force the dark mode anytime. To do this, add `data-dark-mode="true"
 ```
 The default dark mode widget looks like this:
 
-<img src="./home/neat-webring-dark-mode.png" style="max-width: 350px" />
+<img src="./home/neat-webring-dark-mode.png" width="350" style="max-width: 350px" />
 
 ## Further info
 
@@ -112,13 +112,13 @@ If you want to mess with the widget styling, you can find the CSS rules in the `
 
 ## Troubleshooting
 
-Make sure the website is actually in the `sites.txt` list and make sure it's spelled correctly.
+Make sure the website is actually in the `settings.txt` list and make sure it's spelled correctly.
 
 Check that the script tag is pointing to the right place. It should be `http://your-website.com/neat-webring/embed/webring.js`.
 
 Make sure you haven't moved the location of the `/neat-webring/` folder.
 
-Check that each link in `sites.txt` starts with an `http://` or `https://`.
+Check that each link in `settings.txt` starts with an `http://` or `https://`.
 
 Make sure none of the site names have a colon character. This can break the widget! If you absolutely need the colon, enclose the site name in quotes:
 
