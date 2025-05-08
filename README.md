@@ -76,7 +76,7 @@ To put the webring widgets on any website, copy and paste the following script t
 
 The default widget should look like this:
 
-<img src="./home/neat-webring-default.png" width="350" style="max-width: 350px" />
+<img src="./neat-webring-default.png" width="350" style="max-width: 350px" />
 
 Share the script tag with anyone you want to include in your webring. They can paste the same tag into their own website and keep the ring going.
 
@@ -102,15 +102,20 @@ You can also force the dark mode anytime. To do this, add `data-dark-mode="true"
 ```
 The default dark mode widget looks like this:
 
-<img src="./home/neat-webring-dark-mode.png" width="350" style="max-width: 350px" />
+<img src="./neat-webring-dark-mode.png" width="350" style="max-width: 350px" />
 
-## Further info
+## FAQ
+
+**What size is the widget?**
 
 The webring widget will try to stretch and fill the area it sits in. It will shrink as low as 250 pixels wide and stretch up to 400 pixels wide.
 
-If you want to mess with the widget styling, you can find the CSS rules in the `core.css` file in the `embed` folder.
+**Can I change the widget style?**
+Yes! If you want to change the widget styling, you can find the CSS rules in the `core.css` file in the `embed` folder. Only the webring owner can change the widget style.
 
 ## Troubleshooting
+
+Is the widget not appearing? Here are some things to try.
 
 Make sure the website is actually in the `settings.txt` list and make sure it's spelled correctly.
 
@@ -126,6 +131,4 @@ Make sure none of the site names have a colon character. This can break the widg
 ❌ name: Dragon Toucher: The Complete Series
 ✅ name: "Dragon Toucher: The Complete Series"
 ```
-
----
 
