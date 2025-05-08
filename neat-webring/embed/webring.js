@@ -31,5 +31,6 @@
   });
 
   script.parentNode.insertBefore(iframe, script.nextSibling);
+  script.remove();
 
 })();
