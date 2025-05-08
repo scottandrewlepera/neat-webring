@@ -5,7 +5,7 @@ Neat Webring! is the easiest way to set up a webring! No coding experience requi
 You don't need to know HTML or any other code. You just need the following:
 
 * a website, where you can upload files
-* a program for editing text, like Notepad or TextEdit
+* a program for editing text files, like Notepad or TextEdit
 
 ## Setting up your webring
 
