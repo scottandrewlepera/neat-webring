@@ -9,7 +9,7 @@ You don't need to know HTML or any other code. You just need the following:
 
 ## Setting up your webring
 
-First, unzip the `neat-webring.zip` ZIP file (you can usually just double-click on it and your computer should know what to do). This should create a folder named `neat-webring`
+First, [download and unzip the latest ZIP file](https://github.com/scottandrewlepera/neat-webring/releases) (you can usually just double-click on it and your computer should know what to do). This should create a folder named `neat-webring`
 
 Now follow the steps below.
 
