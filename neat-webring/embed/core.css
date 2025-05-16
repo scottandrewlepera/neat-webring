@@ -64,9 +64,9 @@
       transition: all 250ms ease-in;
       fill: currentColor;
     }
-    & svg:hover {
-     transform: scale(120%) 
-    }
+  }
+  & svg:hover {
+    transform: scale(120%) 
   }
 }
 .neat-webring-footer a {
