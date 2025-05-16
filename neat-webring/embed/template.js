@@ -14,9 +14,17 @@ export const processTemplate = (
     nextSiteName,
     randomSiteUrl
   ) => {
+
   const utm = "?utm_source=nh_webring&utm_medium=web";
+
+  const site = webring.currentSite;
+  let cssOverrides = '';
+  if (site.backgroundColor) cssOverrides += `--neat-webring-bg-color: ${site.backgroundColor}; `;
+  if (site.linkColor) cssOverrides += `--neat-webring-button-color: ${site.linkColor}; `;
+  if (site.textColor) cssOverrides += `--neat-webring-text-color: ${site.textColor}; `;
+
   return `
-    <div class="neat-webring-inner">
+    <div class="neat-webring-inner" style="${ cssOverrides.length > 0 ? cssOverrides : ''}">
       <div class="neat-webring-title">${webring.webringName}</div>
       <div class="neat-webring-links">
         <a target="_top" class="neat-webring-link-prev" title="${prevSiteName}" href="${prevUrl}${utm}">${svgPrev}</a>

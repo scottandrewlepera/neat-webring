@@ -50,6 +50,8 @@ async function webring_init(siteData) {
 
   if (index === -1) return;
 
+  config.currentSite = settings[index];
+
   const filtered = urls.filter(loc => !siteUrl.startsWith(loc));
   const randomIndex = Math.floor(Math.random() * filtered.length);
 
