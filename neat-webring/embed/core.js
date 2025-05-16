@@ -1,24 +1,29 @@
 import { processTemplate } from "./template.js";
-import { getConfig } from "./util.js";
+import { getConfig, getStyles } from "./util.js";
 
 async function webring_init(siteData) {
   let {
     siteUrl,
     siteOrigin,
-    bgcolor,
     darkMode
   } = siteData;
 
-  const settingsPath = "../settings.txt";
-
-  function reportHeight() {
+  function abort() {
     window.parent.postMessage(
       {
-        "height": document.documentElement.scrollHeight
+        "abort": true
       },
       siteOrigin
     );
   }
+
+  window.addEventListener("error", (evt) => {
+    console.error(evt.message);
+    abort();
+  });
+
+  const settingsPath = "../settings.txt";
+  const styles = await getStyles('./core.css');
 
   function normalizeURLs(urls) {
     return urls
@@ -31,16 +36,19 @@ async function webring_init(siteData) {
 
   if (settings.length === 0) {
     console.error('No settings found in settings.txt file.');
+    abort();
     return;
   }
   const config = settings.shift();
   if (!config?.webringName) {
     console.error('Missing webring settings.');
+    abort()
     return;
   }
  
   if (settings.length === 0) {
     console.error('No sites found in sites.txt file.');
+    abort()
     return;
   }
 
@@ -75,18 +83,24 @@ async function webring_init(siteData) {
     randomSiteUrl
   );
 
+  const styleEl = document.createElement('style');
+  styleEl.textContent = styles;
   rootEl.innerHTML = template.trim();
   (darkMode);
   if (darkMode === "true") {
     rootEl.classList.add("dark-mode");
   }
-  document.body.appendChild(rootEl);
-  document.body.style.backgroundColor = bgcolor || "white";
-  
-  reportHeight();
+  rootEl.appendChild(styleEl);
+
+  window.parent.postMessage(
+    {
+      "content": rootEl.outerHTML
+    },
+    siteOrigin
+  );
 
 };
 
 window.addEventListener("message", (evt) => {
-  webring_init(evt.data);
+    webring_init(evt.data);
 });

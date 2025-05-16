@@ -7,18 +7,22 @@
   const scriptOrigin = scriptUrl.origin;
   let scriptPath = scriptUrl.pathname.slice(0, scriptUrl.pathname.lastIndexOf('/'));
   const siteOrigin = location.origin;
-  const iframeInitialHeight = "50px";
 
   const iframe = document.createElement('iframe');
   iframe.id = id;
   iframe.src = `${scriptOrigin}${scriptPath}/webring.html`;
-  iframe.style.height = iframeInitialHeight;
-  iframe.style.width = "100%";
+  iframe.style.height = "1";
+  iframe.style.width = "1";
   iframe.style.border = "0";
   
   window.addEventListener("message", (evt) => {
     if (evt.origin === scriptOrigin) {
-      iframe.style.height = `${evt.data.height + 2}px`;
+      if (!evt.data.abort) {
+        const div = document.createElement('div');
+        div.innerHTML = evt.data.content;
+        iframe.parentNode.insertBefore(div, iframe.nextSibling);
+      }
+      iframe.remove();
     }
   });
 

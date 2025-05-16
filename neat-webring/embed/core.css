@@ -7,7 +7,7 @@
 
 :root {
   --neat-webring-font: sans-serif;
-  --neat-webring-font-size: clamp(18px, 5vw, 32px);
+  --neat-webring-font-size: clamp(20px, 8cqi, 30px);
   --neat-webring-text-color: rgb(16, 15, 15);
   --neat-webring-button-color: rgb(32, 94, 166);
   --neat-webring-bg-color: rgb(255,255,255);
@@ -27,16 +27,11 @@
   }
 }
 
-body, body > * {
-  margin: 0;
-  padding: 0;
-}
-
 .neat-webring {
   display: flex;
   justify-content: center;
   font-family: var(--neat-webring-font);
-  font-size: var(--neat-webring-font-size);
+  container-type: inline-size;
 }
 .neat-webring-inner {
   font-family: sans-serif;
@@ -44,24 +39,28 @@ body, body > * {
   color: var(--neat-webring-text-color);
   background-color: var(--neat-webring-bg-color);
   border-radius: 0.5em;
-  min-inline-size: 250px;
-  max-inline-size: 400px;
+  font-size: var(--neat-webring-font-size);
+  width: clamp(250px, 100%, 350px);
 }
 .neat-webring-title {
   text-align: center;
   font-weight: bold;
   margin-bottom: 0.5em;
+  line-height: 1em;
+  font-size: 0.8em;
 }
 .neat-webring-links {
   display: flex;
   justify-content: space-between;
-  font-size: 1em;
-  & a {
+  & a,
+  & a:hover,
+  & a:visited,
+  & a:active {
     text-decoration: none;
     color: var(--neat-webring-button-color);
 
     & svg {
-      width: 2em;
+      width: 1.4em;
       transition: all 250ms ease-in;
       fill: currentColor;
     }

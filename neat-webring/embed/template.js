@@ -32,7 +32,7 @@ export const processTemplate = (
         ${ (webring.showHomeIcon) ? `<a target="_top" class="neat-webring-link-home" title="Webring Home" href="${webring.homepage}${utm}">${svgHome}</a>` : ''}  
         <a target="_top" class="neat-webring-link-next" title="${nextSiteName}" href="${nextUrl}${utm}">${svgNext}</a>
       </div>
-      <div class="neat-webring-footer">Powered by <a href="https://github.com/scottandrewlepera/neat-webring" target="_top">Neat Webring!</a></div>
+      <div class="neat-webring-footer"></div>
     </div>
 `;
 }

@@ -9,3 +9,15 @@ export async function getConfig(path) {
     });
   return jsyaml.loadAll(text);
 }
+
+export async function getStyles(path) {
+  let text;
+  await fetch(path)
+    .then(async response => {
+      text = await response.text();
+    }).catch(reason => {
+      console.error(`Config error with ${path}`, reason);
+      return;
+    });
+  return text;
+}
