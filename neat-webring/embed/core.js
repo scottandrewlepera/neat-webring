@@ -23,7 +23,15 @@ async function webring_init(siteData) {
   });
 
   const settingsPath = "../settings.txt";
-  const styles = await getStyles('./core.css');
+  let styles, settings;
+
+  try {
+    styles = await getStyles('./core.css');
+    settings = await getConfig(settingsPath);
+  } catch (err) {
+    console.error(err);
+    abort();
+  }
 
   function normalizeURLs(urls) {
     return urls
@@ -31,8 +39,6 @@ async function webring_init(siteData) {
       .filter(line => line.length > 0)
       .filter(Boolean);
   }
-
-  let settings = await getConfig(settingsPath);
 
   if (settings.length === 0) {
     console.error('No settings found in settings.txt file.');
