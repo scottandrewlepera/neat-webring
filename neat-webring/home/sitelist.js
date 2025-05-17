@@ -9,7 +9,7 @@ import { getConfig } from "../embed/util.js";
   
   let list = '';
   sites.forEach(site => {
-    list += `<li><a href="${site.link}">${site.name}</a>${(site?.description) ? ` - ${site.description}` : ''}</li>`;
+    list += `<li><a href="${site.link}">${site?.name ? site.name : site.link}</a>${(site?.description) ? ` - ${site.description}` : ''}</li>`;
   });
 
   list = `<ul>${list}</ul>`;
