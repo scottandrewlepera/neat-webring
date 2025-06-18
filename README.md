@@ -1,3 +1,11 @@
+<div align="center">
+  <p><em>"We should bring back webrings!"</em></p>
+
+<p><strong>Okay then, let's bring back webrings.</strong></p>
+
+<p>Introducing...</p>
+</div>
+
 # Neat Webring!
 
 Neat Webring! is the easiest way to set up a webring! No coding experience required!
