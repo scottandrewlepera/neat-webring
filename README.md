@@ -15,6 +15,21 @@ You don't need to know HTML or any other code. You just need the following:
 * a website, where you can upload files
 * a program for editing text files, like Notepad or TextEdit
 
+## Table of Contents
+
+- [Setting up your webring](#setting-up-your-webring)
+  - [1. Edit your webring settings](#1-edit-your-webring-settings)
+  - [2. Create the list of websites](#2-create-the-list-of-websites)
+  - [3. Upload the folder](#3-upload-the-folder)
+- [Putting the webring widget on any website](#putting-the-webring-widget-on-any-website)
+- [BONUS FEATURE! An automatic homepage for your webring](#bonus-feature-an-automatic-homepage-for-your-webring)
+- [Advanced settings](#advanced-settings)
+  - [Handling NSFW websites](#handling-nsfw-websites)
+  - [Customizing widget colors per site](#customizing-widget-colors-per-site)
+  - [Dark mode](#dark-mode)
+- [FAQ](#faq)
+- [Troubleshooting](#troubleshooting)
+
 ## Setting up your webring
 
 First, [download and unzip the latest ZIP file](https://github.com/scottandrewlepera/neat-webring/releases) (you can usually just double-click on it and your computer should know what to do). This should create a folder named `neat-webring`
@@ -98,29 +113,31 @@ Neat Webring! automatically creates a homepage for your webring where vistors ca
 
 If you're familiar with HTML and CSS you can redesign this page however you like. You can also move it to a new location on your website, so long as you change the value of `homepage` in the `settings.txt` file.
 
-## BONUS FEATURE! Dark mode!
-
-Neat Webring! has a built-in dark mode which will toggle on if the user sets dark mode on their computer or phone.
-
-You can also force the dark mode anytime. To do this, add `data-dark-mode="true"` to the `<script>` tag:
-
-```html
-<script src="http://your-website.com/neat-webring/embed/webring.js" data-dark-mode="true"></script>
-
-```
-The default dark mode widget looks like this:
-
-<img src="./neat-webring-dark-mode.png" width="350" style="max-width: 350px" />
-
 ## Advanced settings
 
+### Handling NSFW websites
+
+Neat Webring! can warn users if a website they're about to visit is Not Safe For Work (NSFW). To enable this, add the following field to the website entry:
+
+<pre>
+---
+name: My Friend's NSFW Website
+link: https://my-awesome-friend.net
+description: Beware! This website is NSFW!
+<b>nsfw: true</b>
+</pre>
+
+When a visitor clicks a link in the webring that leads to a NSFW website, they will be a shown a warning page, with the option to either continue to the NSFW website, or be redirected to a different website in the ring.
+
+Furthermore, the visitor can ask to never be shown NSFW websites by toggling a switch on the warning page or website home page. When toggled, the widget will only include safe-for-work websites for that visitor, and links to NSFW websites will be disabled on the home page.
 
 ### Customizing widget colors per site
 
 If you want to be nice to your webring folks you can offer to customize the widget colors to better match their website style. Add the following fields to any website in the list, and provide a valid CSS color value for each.
 
-* 
-
+* backgroundColor - the background color of the widget
+* linkColor - the color of links in the widget
+* textColor - the color of plain text in the widget
 
 These colors will only be applied when the widget loads on the specified site and will not affect other sites in the webring.
 
@@ -138,11 +155,26 @@ description: This is my best friend's site, which is mostly pink.
 
 <img src="./neat-webring-custom-colors.png" width="350" style="max-width: 350px" />
 
+
 > NOTE: if you want to use hexadecimal colors, be sure to put them in quotation marks:
 > ```
 > ❌ linkColor: #0000ff
 > ✅ linkColor: "#0000ff"
 > ```
+
+## Dark mode
+
+Neat Webring! has a built-in dark mode which will toggle on if the user sets dark mode on their computer or phone.
+
+You can also force the dark mode anytime. To do this, add `data-dark-mode="true"` to the `<script>` tag:
+
+```html
+<script src="http://your-website.com/neat-webring/embed/webring.js" data-dark-mode="true"></script>
+
+```
+The default dark mode widget looks like this:
+
+<img src="./neat-webring-dark-mode.png" width="350" style="max-width: 350px" />
 
 ## FAQ
 
