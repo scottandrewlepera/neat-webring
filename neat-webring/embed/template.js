@@ -27,10 +27,10 @@ export const processTemplate = (
     <div class="neat-webring-inner" style="${ cssOverrides.length > 0 ? cssOverrides : ''}">
       <div class="neat-webring-title">${webring.webringName}</div>
       <div class="neat-webring-links">
-        <a target="_top" class="neat-webring-link-prev" title="${prevSiteName}" href="${prevUrl}${utm}">${svgPrev}</a>
-        ${ (webring.showRandomIcon) ? `<a target="_top" class="neat-webring-link-random" title="Random site" href="${randomSiteUrl}${utm}">${svgRandom}</a>` : ''}
+        ${ prevUrl ? `<a target="_top" class="neat-webring-link-prev" title="${prevSiteName}" href="${prevUrl}${utm}">${svgPrev}</a>` : ''}
+        ${ (webring.showRandomIcon && randomSiteUrl) ? `<a target="_top" class="neat-webring-link-random" title="Random site" href="${randomSiteUrl}${utm}">${svgRandom}</a>` : ''}
         ${ (webring.showHomeIcon) ? `<a target="_top" class="neat-webring-link-home" title="Webring Home" href="${webring.homepage}${utm}">${svgHome}</a>` : ''}  
-        <a target="_top" class="neat-webring-link-next" title="${nextSiteName}" href="${nextUrl}${utm}">${svgNext}</a>
+        ${ nextUrl ? `<a target="_top" class="neat-webring-link-next" title="${nextSiteName}" href="${nextUrl}${utm}">${svgNext}</a>` : ''}
       </div>
       <div class="neat-webring-footer"></div>
     </div>

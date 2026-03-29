@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Content Warning – Neat Webring!</title>
+  <meta http-equiv="Cache-Control" content="no-store">
+  <link rel="stylesheet" href="../shared.css">
+  <script src="../embed/js-yaml.min.js"></script>
+  <style>
+    .page-card {
+      max-width: 520px;
+    }
+    .attestation {
+      font-size:     0.85em;
+      color:         var(--nw-text-muted);
+      border-left:   3px solid var(--nw-border);
+      padding-left:  0.75em;
+      margin-bottom: 1.5em;
+    }
+    .actions {
+      display:        flex;
+      flex-direction: column;
+      gap:            0.75em;
+      margin-bottom:  1.5em;
+    }
+    button {
+      font-size:     1em;
+      padding:       0.6em 1.2em;
+      border:        1px solid transparent;
+      border-radius: 5px;
+      cursor:        pointer;
+      transition:    background 150ms ease;
+    }
+    .btn-continue {
+      background:   var(--nw-accent);
+      color:        #fff;
+      border-color: var(--nw-accent);
+    }
+    .btn-continue:hover { background: var(--nw-accent-hover); border-color: var(--nw-accent-hover); }
+    .btn-elsewhere {
+      background:   transparent;
+      color:        var(--nw-text);
+      border-color: var(--nw-border);
+    }
+    .btn-elsewhere:hover { background: var(--nw-bg); }
+    .pref-row {
+      display:     flex;
+      align-items: flex-start;
+      gap:         0.5em;
+      font-size:   0.85em;
+      line-height: 1.4;
+      color:       var(--nw-text-muted);
+    }
+    .pref-row input[type="checkbox"] {
+      margin-top:  0.15em;
+      flex-shrink: 0;
+      cursor:      pointer;
+    }
+    .pref-row label { cursor: pointer; }
+    #error-msg {
+      color:      var(--nw-danger);
+      font-size:  0.85em;
+      margin-top: 0.5em;
+      display:    none;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-card">
+    <span class="nsfw-badge">NSFW</span>
+    <h1>Content Warning</h1>
+    <p>
+      The link you followed leads to a website that may contain
+      <strong>Not Safe for Work (NSFW)</strong> content, which may include
+      adult themes, explicit imagery, or other material not suitable for
+      all audiences.
+    </p>
+    <p class="attestation">
+      By continuing, you attest that you are of legal age and are legally
+      permitted to view such content in your jurisdiction. You also acknowledge
+      that you are accessing this content of your own free will.
+    </p>
+    <div class="actions">
+      <button type="button" class="btn-continue" id="btn-continue">Continue to site</button>
+      <button type="button" class="btn-elsewhere" id="btn-elsewhere">Take me somewhere else</button>
+    </div>
+    <div class="pref-row">
+      <input type="checkbox" id="pref-checkbox">
+      <label for="pref-checkbox">Never show NSFW websites — skip them in navigation and on the homepage</label>
+    </div>
+    <div id="error-msg">No alternative sites available. Returning to the webring homepage.</div>
+  </div>
+  <script type="module" src="./nsfw.js"></script>
+</body>
+</html>

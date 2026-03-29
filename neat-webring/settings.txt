@@ -19,13 +19,9 @@ description: "Semi-weekly gag comics for the terminally online."
 name: HERETICAL
 link: https://hereticalcomic.com/heretical/
 description: "Superstition and survival in an unmade world."
+nsfw: true
 ---
 name: "HERETICAL: CHROME SANDS"
 link: https://hereticalcomic.com/heretical-chrome-sands/
 description: "Part two of the \"HERETICAL\" series."
 
----
-link: http://localhost:57521
-backgroundColor: lightpink
-linkColor: hotpink
-textColor: white

@@ -1,5 +1,7 @@
 import { processTemplate } from "./template.js";
-import { getConfig, getStyles } from "./util.js";
+import { getConfig, getStyles, getNsfwPref } from "./util.js";
+
+const nsfwBase = new URL('../nsfw/', import.meta.url).href;
 
 async function webring_init(siteData) {
   let {
@@ -58,24 +60,51 @@ async function webring_init(siteData) {
     return;
   }
 
-  const siteUrls = settings.filter(Boolean).map(site => site.link || null);
+  const hideNsfw = getNsfwPref();
+
+  // When the pref is set, remove NSFW sites from navigation entirely.
+  const visibleSettings = hideNsfw
+    ? settings.filter(site => site && !site.nsfw)
+    : settings.filter(Boolean);
+
+  const siteUrls = visibleSettings.map(site => site.link || null);
   const urls = normalizeURLs(siteUrls);
   const index = urls.findIndex(loc => siteUrl.startsWith(loc));
 
   if (index === -1) return;
 
-  config.currentSite = settings[index];
+  config.currentSite = visibleSettings[index];
 
   const filtered = urls.filter(loc => !siteUrl.startsWith(loc));
   const randomIndex = Math.floor(Math.random() * filtered.length);
 
   const prevIndex = (index - 1 + urls.length) % urls.length;
   const nextIndex = (index + 1) % urls.length;
-  const prevUrl = urls[prevIndex];
-  const nextUrl = urls[nextIndex];
-  const prevSiteName = settings[prevIndex].name || 'Previous site';
-  const nextSiteName = settings[nextIndex].name || 'Next site';
-  const randomSiteUrl = filtered[randomIndex];
+
+  // Resolve the actual destination URL, routing NSFW sites through the warning
+  // page when the user has not opted out (they would already be filtered above).
+  // UTM params are encoded into the destination so template.js can safely append
+  // its own utm suffix to the warning page URL without breaking the inner url param.
+  const utm = "?utm_source=nh_webring&utm_medium=web";
+  function resolveUrl(site, url) {
+    if (!url) return null;
+    if (!hideNsfw && site?.nsfw) {
+      return `${nsfwBase}?url=${encodeURIComponent(url + utm)}`;
+    }
+    return url;
+  }
+
+  const prevSite = visibleSettings[prevIndex];
+  const nextSite = visibleSettings[nextIndex];
+  const randomSite = filtered.length > 0
+    ? visibleSettings.find(s => s.link === filtered[randomIndex]) || null
+    : null;
+
+  const prevUrl = resolveUrl(prevSite, urls[prevIndex]);
+  const nextUrl = resolveUrl(nextSite, urls[nextIndex]);
+  const prevSiteName = prevSite?.name || 'Previous site';
+  const nextSiteName = nextSite?.name || 'Next site';
+  const randomSiteUrl = resolveUrl(randomSite, filtered[randomIndex] || null);
 
   const rootEl = document.createElement('div');
   rootEl.className = 'neat-webring';
@@ -92,7 +121,6 @@ async function webring_init(siteData) {
   const styleEl = document.createElement('style');
   styleEl.textContent = styles;
   rootEl.innerHTML = template.trim();
-  (darkMode);
   if (darkMode === "true") {
     rootEl.classList.add("dark-mode");
   }

@@ -2,27 +2,37 @@
 <html lang="en">
 <head>
   <title>Neat Webring! Home Page</title>
+  <link rel="stylesheet" href="../shared.css">
   <script src="../embed/js-yaml.min.js"></script>
   <style>
-    body {
-      font-family: Helvetica, Arial, sans-serif;
-      font-size: 20px;
-      margin: 1em;
+    .page-card {
+      max-width: 640px;
+    }
+    .neat-webring-home h1 {
+      margin-bottom: 0.5em;
+    }
+    ul {
+      padding-left: 1.25em;
     }
     li {
-      line-height: 1.4em;
+      line-height: 1.6em;
     }
-    attr {
-      font-size: 0.8em;
+    .nsfw-disabled {
+      color:  var(--nw-text-subtle);
+      cursor: not-allowed;
     }
-    #webring-home-content {
-      display: flex;
-      justify-content: center;
+    .nsfw-pref-row {
+      margin-top: 1.5em;
+      font-size:  0.85em;
+      color:      var(--nw-text-muted);
     }
+    .nsfw-pref-row label { cursor: pointer; }
   </style>
 </head>
 <body>
-  <div id="webring-home-content"></div>
+  <div class="page-card">
+    <div id="webring-home-content"></div>
+  </div>
   <script src="/neat-webring/home/sitelist.js" type="module"></script>
 </body>
 </html>
