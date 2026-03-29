@@ -112,6 +112,38 @@ The default dark mode widget looks like this:
 
 <img src="./neat-webring-dark-mode.png" width="350" style="max-width: 350px" />
 
+## Advanced settings
+
+
+### Customizing widget colors per site
+
+If you want to be nice to your webring folks you can offer to customize the widget colors to better match their website style. Add the following fields to any website in the list, and provide a valid CSS color value for each.
+
+* 
+
+
+These colors will only be applied when the widget loads on the specified site and will not affect other sites in the webring.
+
+Here's an example:
+
+<pre>
+---
+name: My Friend's Pink Website
+link: https://my-awesome-friend.net
+description: This is my best friend's site, which is mostly pink.
+<b>backgroundColor: lightpink</b>
+<b>linkColor: hotpink</b>
+<b>textColor: white</b>
+</pre>
+
+<img src="./neat-webring-custom-colors.png" width="350" style="max-width: 350px" />
+
+> NOTE: if you want to use hexadecimal colors, be sure to put them in quotation marks:
+> ```
+> ❌ linkColor: #0000ff
+> ✅ linkColor: "#0000ff"
+> ```
+
 ## FAQ
 
 **What size is the widget?**
