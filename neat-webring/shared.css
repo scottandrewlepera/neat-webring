@@ -12,16 +12,16 @@
   --nw-font-size:     18px;
 
   /* Colors - light mode */
-  --nw-bg:            #f5f5f5;   /* page background          */
-  --nw-surface:       #ffffff;   /* card / content surface   */
-  --nw-text:          #111111;   /* primary text             */
-  --nw-text-muted:    #555555;   /* secondary / helper text  */
-  --nw-text-subtle:   #999999;   /* disabled / de-emphasised */
-  --nw-border:        #cccccc;   /* borders and dividers     */
-  --nw-border-radius: 8px;         /* card corners             */
-  --nw-accent:        #205ea6;   /* primary action           */
-  --nw-accent-hover:  #2a74c8;   /* primary action – hover   */
-  --nw-danger:        #c0392b;   /* NSFW badge / error       */
+  --nw-bg:            #f5f5f5;   /* page background */
+  --nw-surface:       #ffffff;   /* card / content surface */
+  --nw-text:          #111111;   /* primary text */
+  --nw-text-muted:    #555555;   /* secondary / helper text */
+  --nw-text-subtle:   #999999;   /* disabled */
+  --nw-border:        #cccccc;   /* borders and dividers */
+  --nw-border-radius: 8px;         /* card corners */
+  --nw-accent:        #205ea6;   /* primary action */
+  --nw-accent-hover:  #2a74c8;   /* primary action hover */
+  --nw-danger:        #c0392b;   /* NSFW badge */
 }
 
 /* Dark mode overrides */
@@ -100,8 +100,6 @@ a {
 a:visited {
   color: var(--nw-accent);
 }
-
-/* Attribution element */
 
 attr {
   font-size: 0.8em;
