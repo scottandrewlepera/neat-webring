@@ -10,7 +10,7 @@ showHomeIcon: true
 
 ### SITE LIST
 ### Add sites to your webring here, separated by "---"
-### The sites below are placeholders, feel free to remove them.
+### The sites below are placeholders, feel free to change them.
 
 name: Neat Hobby!
 link: https://neathobby.com
@@ -19,9 +19,11 @@ description: "Semi-weekly gag comics for the terminally online."
 name: HERETICAL
 link: https://hereticalcomic.com/heretical/
 description: "Superstition and survival in an unmade world."
-nsfw: true
 ---
 name: "HERETICAL: CHROME SANDS"
 link: https://hereticalcomic.com/heretical-chrome-sands/
 description: "Part two of the \"HERETICAL\" series."
-
+---
+name: "Scott Andrew"
+link: https://scottandrew.com
+description: "The personal website of Scott Andrew, creator of Neat Webring!"
