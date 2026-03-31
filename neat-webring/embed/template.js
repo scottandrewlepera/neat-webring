@@ -12,10 +12,11 @@ export const processTemplate = (
     nextUrl,
     prevSiteName,
     nextSiteName,
-    randomSiteUrl
+    randomSiteUrl,
+    utmSource = 'neat_webring'
   ) => {
 
-  const utm = "?utm_source=nh_webring&utm_medium=web";
+  const utm = `?utm_source=${utmSource}&utm_medium=web`;
 
   const site = webring.currentSite;
   let cssOverrides = '';

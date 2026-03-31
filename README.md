@@ -28,6 +28,7 @@ You don't need to know HTML or any other code. You just need the following:
   - [Handling NSFW websites](#handling-nsfw-websites)
   - [Customizing widget colors per site](#customizing-widget-colors-per-site)
   - [Dark mode](#dark-mode)
+  - [UTM parameters](#utm-parameters)
 - [FAQ](#faq)
 - [Troubleshooting](#troubleshooting)
 
@@ -184,6 +185,16 @@ You can also force the dark mode anytime. To do this, add `data-dark-mode="true"
 The default dark mode widget looks like this:
 
 <img src="./neat-webring-dark-mode.png" width="350" style="max-width: 350px" />
+
+## UTM parameters
+
+You can customize the `utm_source` parameter used in the website links by specifying it in the webring settings.
+
+```
+utmSource: "my_cool_site"
+```
+
+This parameter is optional. The default value is `neat_webring`.
 
 ## FAQ
 

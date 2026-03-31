@@ -9,6 +9,7 @@ const nsfwBase = new URL('../nsfw/', import.meta.url).href;
   const settings = await getConfig(settingsPath);
   const config = settings.shift();
   const sites = settings.filter(Boolean);
+  const utm = `?utm_source=${config.utmSource || 'neat_webring'}&utm_medium=web`;
 
   function buildList(hideNsfw) {
     let list = '';
@@ -20,10 +21,10 @@ const nsfwBase = new URL('../nsfw/', import.meta.url).href;
       if (isNsfw && hideNsfw) {
         list += `<li><span class="nsfw-disabled" title="NSFW content hidden by your preference">${label}</span>${desc}</li>`;
       } else if (isNsfw) {
-        const warnUrl = `${nsfwBase}?url=${encodeURIComponent(site.link)}`;
+        const warnUrl = `${nsfwBase}?url=${encodeURIComponent(site.link + utm)}`;
         list += `<li><a href="${warnUrl}">${label}</a>${desc}</li>`;
       } else {
-        list += `<li><a href="${site.link}">${label}</a>${desc}</li>`;
+        list += `<li><a href="${site.link + utm}">${label}</a>${desc}</li>`;
       }
     });
     return `<ul>${list}</ul>`;

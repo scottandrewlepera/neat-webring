@@ -2,7 +2,6 @@ import { getConfig, getNsfwPref, setNsfwPref } from "../embed/util.js";
 
 const settingsPath = new URL('../settings.txt', import.meta.url).href;
 const nsfwBase = new URL('../nsfw/', import.meta.url).href;
-const utm = "?utm_source=nh_webring&utm_medium=web";
 const REDIRECT_DELAY_MS = 2000;
 
 const container = document.getElementById('go-content');
@@ -42,6 +41,7 @@ function pickRandom(sites) {
 }
 
 let allSites = [];
+let utm = '?utm_source=neat_webring&utm_medium=web';
 
 function go(webringName, sites) {
   const hideNsfw = getNsfwPref();
@@ -69,6 +69,8 @@ function go(webringName, sites) {
 
   const config = settings.shift();
   allSites = settings.filter(s => s && s.link);
+
+  utm = `?utm_source=${config.utmSource || 'neat_webring'}&utm_medium=web`;
 
   document.title = config.webringName;
   renderSpinner(config.webringName);

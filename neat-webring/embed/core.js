@@ -62,6 +62,9 @@ async function webring_init(siteData) {
 
   const hideNsfw = getNsfwPref();
 
+  const utmSource = config.utmSource || 'neat_webring';
+  const utm = `?utm_source=${utmSource}&utm_medium=web`;
+
   // When the pref is set, remove NSFW sites from navigation entirely.
   const visibleSettings = hideNsfw
     ? settings.filter(site => site && !site.nsfw)
@@ -85,7 +88,6 @@ async function webring_init(siteData) {
   // page when the user has not opted out (they would already be filtered above).
   // UTM params are encoded into the destination so template.js can safely append
   // its own utm suffix to the warning page URL without breaking the inner url param.
-  const utm = "?utm_source=nh_webring&utm_medium=web";
   function resolveUrl(site, url) {
     if (!url) return null;
     if (!hideNsfw && site?.nsfw) {
@@ -115,7 +117,8 @@ async function webring_init(siteData) {
     nextUrl,
     prevSiteName,
     nextSiteName,
-    randomSiteUrl
+    randomSiteUrl,
+    utmSource
   );
 
   const styleEl = document.createElement('style');
