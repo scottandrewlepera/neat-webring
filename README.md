@@ -1,9 +1,9 @@
 <div align="center">
   <p><em>"We should bring back webrings!"</em></p>
 
-<p><strong>Okay then, let's bring back webrings.</strong></p>
+  <p><strong>Okay then, let's bring back webrings.</strong></p>
 
-<p>Introducing...</p>
+  <p>Introducing...</p>
 </div>
 
 # Neat Webring!
@@ -22,6 +22,7 @@ You don't need to know HTML or any other code. You just need the following:
   - [2. Create the list of websites](#2-create-the-list-of-websites)
   - [3. Upload the folder](#3-upload-the-folder)
 - [Putting the webring widget on any website](#putting-the-webring-widget-on-any-website)
+- [Linking to your webring from social media](#linking-to-your-webring-from-social-media)
 - [BONUS FEATURE! An automatic homepage for your webring](#bonus-feature-an-automatic-homepage-for-your-webring)
 - [Advanced settings](#advanced-settings)
   - [Handling NSFW websites](#handling-nsfw-websites)
@@ -104,6 +105,14 @@ The default widget should look like this:
 Share the script tag with anyone you want to include in your webring. They can paste the same tag into their own website and keep the ring going.
 
 You're basically done!
+
+## Linking to your webring from social media
+
+Neat Webring! has a special link that can take your social media followers into the webring:
+
+`http://your-website.com/neat-webring/go/`
+
+Paste this link into your social media apps, link-in-bio style. When a follower clicks this link, they'll be sent to a random site in the webring. (You can use this link on your website, too!)
 
 ## BONUS FEATURE! An automatic homepage for your webring
 
